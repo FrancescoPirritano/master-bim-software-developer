@@ -1,1 +1,202 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+</head>
+<body>
+    <aside id="sidebar">
+        <img id="imde-logo" src="./asset/CompanyLogo_v20.svg"  alt="BIM-Consultancy" style="height: 75px;">
+        <div id="sidebar-menu">
+            <h2>BIM App</h2>
+            <ul class="btn-sidebar">
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg)">home</span>Projects</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg)">analytics</span>Analytics</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg)">person</span>Members</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg)">apartment</span>Companies</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg)">settings</span>Settings</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg)">apps</span>App Integrations</li>
+            </ul>
+        </div>
+        <div id="sidebar-about">
+            <h2>Discover</h2>
+            <ul class="btn-sidebar">
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg);">info</span>Who we are</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg);">groups</span>Our team</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg);">engineering</span>Services</li>
+                <li><span class="material-icons-sharp" style="font-size: var(--icon-lg);">alternate_email</span>Let's talk</li>
+            </ul>
+        </div>
+    </aside>
+    <main id="content">
+        <div class="page" id="members-page">
+            <dialog id="new-user-modal">
+                <form>
+                    <h2>Add User</h2>
+                    <div class="new-user-input">
+                        <div class="form-field-new-user" style="display: flex; align-items: center; background-color: var(--background);">
+                            <input type="image" src="./asset/man-profile.png" alt="Profile picture" style="height: 80px; width: 80px; background-color: var(--background); outline: none;">
+                            <p style="display: flex; color: grey; font-size: var(--font-sm); font-style: italic; margin-top: 10px;">Click on the icon to add picture</p>
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">person</span>Name</span></label>
+                            <input type="text" placeholder="Type your full name...">
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">alternate_email</span></span>Email</label>
+                            <input type="email" placeholder="name.surname@abc.com">
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">home</span>Project</label>
+                            <select>
+                                <option value="">Select Project</option>
+                                <option value="Project 01">Project 01</option>
+                                <option value="Project 02">Project 02</option>
+                                <option value="Project 03">Project 03</option>
+                                <option value="Project 04">Project 04</option>
+                                <option value="Project 05">Project 05</option>
+                            </select>
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">info</span>Discipline code</label>
+                            <select>
+                                <option value="">Select Discipline code</option>
+                                <option value="Architect">A - Architects</option>
+                                <option value="Structural Engineer">S - Structural Engineers</option>
+                                <option value="Facility Manager">FM - Facility Managers</option>
+                                <option value="MEP Engineers">MEP - Combined services</option>
+                                <option value="Contractor">X - Not applicable</option>
+                            </select>
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">info</span>Role</label>
+                            <select>
+                                <option value="">Select Role</option>
+                                <option value="Architect">Lead Architect</option>
+                                <option value="Engineer">Contractor</option>
+                                <option value="Developer">Facility Manager</option>
+                                <option value="Contractor">Information Manager</option>
+                                <option value="Admin">Project Manager</option>
+                            </select>
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">apartment</span>Company</label>
+                            <input type="text" placeholder="Company Name">
+                        </div>
+                        <div class="form-field-new-user">
+                            <label style="display: flex; align-items: center; column-gap: 10px;"><span class="material-icons-sharp">description</span>Notes</label>
+                            <textarea cols="30" rows="5" placeholder="Provide any additional notes..." style="height: 80px; padding: 10px;"></textarea>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: end; column-gap: 20px; padding: 20px; justify-content: end;">
+                        <button>Cancel</button>
+                        <button>Accept</button>
+                    </div>
+                </form>
+            </dialog>
+            <header style="display: flex; flex-direction: column; padding: 10px 30px; align-items: start;">
+                <h1>Members</h1>
+            </header>
+            <div id="users-page-detail">
+                <div class="upper-page" style="margin: 10px 30px; display: flex; align-items: center; justify-content: space-between; height: 100px;">
+                    <div id="users-filters" style="display: flex; column-gap: 30px;">
+                        <input type="search" id="user-search" placeholder="Search by Name">
+                        <select>
+                            <option value="">Filter by Role</option>
+                            <option value="Architect">Lead Architect</option>
+                            <option value="Engineer">Contractor</option>
+                            <option value="Developer">Facility Manager</option>
+                            <option value="Contractor">Information Manager</option>
+                            <option value="Admin">Project Manager</option>
+                        </select>
+                    </div>
+                    <div id="new-users-option" style="display: flex; column-gap: 30px; align-items: center;">
+                        <button><span class="material-icons-sharp">file_download</span>Export CSV</button>
+                        <button><span class="material-icons-sharp">file_upload</span>Import CSV</button>
+                        <button><span class="material-icons-sharp">add</span>Add new user</button>
+                    </div>
+                </div>
+            </div>
+            <div class="main-users-list" style="display: flex; margin: 0px 30px; padding: 0px 20px; border-radius: 12px; background-color: var(--background-100); height: 100%;">
+                <div class="users-list-entries" style="display: flex; flex-direction: column; row-gap: 31px; padding: 30px 0px; width: 5%;">
+                    <input id="user-list-checkbox" type="checkbox">
+                    <input id="user-list-checkbox" type="checkbox">
+                    <input id="user-list-checkbox" type="checkbox">
+                    <input id="user-list-checkbox" type="checkbox">
+                    <input id="user-list-checkbox" type="checkbox">
+                    <input id="user-list-checkbox" type="checkbox">
+                </div>    
+                <div class="users-list-entries" style="display: flex; flex-direction: column; row-gap: 35px; padding: 30px 0px; width: 20%;">
+                    <label style="font-size: var(--font-lg); font-weight: 800;">Name</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Danielle Snow</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Paul Red</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Pablo Santos</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Daniel Green</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Juan Mendoza</label>
+                </div>
+                <div class="users-list-entries" style="display: flex; flex-direction: column;row-gap: 35px; padding: 30px 0px; width: 20%;">
+                    <label style="font-size: var(--font-lg); font-weight: 800;">Email</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">danielle.snow@abc.com</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">paul.red@coolbim.com</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">pablo.santos@fm.com</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">daniel.green@webuild.com</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">juan.mendoza@wedesign.com</label>
+                </div>
+                <div class="users-list-entries" style="display: flex; flex-direction: column;row-gap: 35px; padding: 30px 0px; width: 20%;">
+                    <label style="font-size: var(--font-lg); font-weight: 800;">Role</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Project Manager</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Information Manager</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Facility Manager</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Contractor</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Lead Architect</label>
+                </div>
+                <div class="users-list-entries" style="display: flex; flex-direction: column;row-gap: 35px; padding: 30px 0px; width: 20%;">
+                    <label style="font-size: var(--font-lg); font-weight: 800;">Company</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">ABC</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Cool BIM</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">FM</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">We Build</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">We Design</label>
+                </div>
+                <div class="users-list-entries" style="display: flex; flex-direction: column;row-gap: 35px; padding: 30px 0px; width: 15%;">
+                    <label style="font-size: var(--font-lg); font-weight: 800;">Permission</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Admin</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">Admin</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">User</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">User</label>
+                    <label style="font-size: var(--font-base); font-weight: 500;">User</label>
+                </div>
+                <div class="users-list-entries" style="display: flex; flex-direction: column; row-gap: 30px; padding: 30px 0px; width: 5%;">
+                    <div>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);"></span>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);"></span>                    
+                    </div>
+                    <div>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">edit</span>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">delete</span>                    
+                    </div>
+                    <div>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">edit</span>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">delete</span>                    
+                    </div>
+                    <div>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">edit</span>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">delete</span>                    
+                    </div>
+                    <div>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">edit</span>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">delete</span>                    
+                    </div>
+                    <div>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">edit</span>
+                        <span class="material-icons-sharp" style="font-size: var(--font-2xl);">delete</span>                    
+                    </div>
+                <div>
+            </div>
+        </div>
+    </main> 
+</body>
+</html>
