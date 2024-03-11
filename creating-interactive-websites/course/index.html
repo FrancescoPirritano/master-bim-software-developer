@@ -1,1 +1,263 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Static Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside id="sidebar">
+        <img id="company-logo" src="./assets/company-logo.svg" alt="Construction Company">
+        <ul id="nav-buttons">
+            <li><span class="material-icons-round">apartment</span>Projects</li>          
+            <li><span class="material-icons-round">people</span>Users</li>
+        </ul>
+    </aside>
+    <main id="content">
+        <div class="page" id="projects-page">
+            <dialog id="new-project-modal">
+                <form id="new-project-form">
+                    <h2>New Project</h2>
+                    <div class="input-list">
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round">apartment</span>Name</label>
+                            <input name="projectName" type="text" placeholder="What's the name of your project">
+                            <p style="color: #969696; font-size: var(--font-sm); font-style: italic; margin-top: 5px;">TIP: Give it a short name</p>
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round">subject</span>Description</label>
+                            <textarea name="projectDescription" cols="30" rows="5" placeholder="Give your project a nice description so people is jealous about it"></textarea>
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round">person</span>Role</label>
+                            <select name="userRole">
+                                <option>Architect</option>
+                                <option>Engineer</option>
+                                <option>Developer</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label><span class="material-icons-round">not_listed_location</span>Status</label>
+                            <select name="projectStatus">
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label for="finishDate"><span class="material-icons-outlined">calendar_month</span>Finish Date</label>
+                            <input name="projectFinishDate" type="date">
+                        </div>
+                        <div class="form-button">
+                            <button id="cancel-new-project-btn" type="button" style="background-color: transparent;">Cancel</button>
+                            <button type="submit" style="background-color: #378512;">Accept</button>
+                        </div>
+                    </div>    
+                </form>
+            </dialog>
+            <header>
+                <h2>Projects</h2>
+                <div>
+                    <button id="new-project-btn"><span class="material-icons-round">add</span>New Project</button>
+                </div>
+            </header>
+            <div id="projects-list">
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #ca8134; padding:10px; border-radius: 8px; aspect-ratio: 1;">HC</p>
+                        <div>
+                            <h5>Hospital Center</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">Community hospital located at downtown</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Engineer</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 2'000.000</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>43%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #63ca34; padding:10px; border-radius: 8px; aspect-ratio: 1;">DE</p>
+                        <div>
+                            <h5>Default Project</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">This is just a default project. You may delete if you want</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 0</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #c721b9; padding:10px; border-radius: 8px; aspect-ratio: 1;">UR</p>
+                        <div>
+                            <h5>Urban Oasis Park</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">City park with green spaces and events</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Pending</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 0</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #63ca34; padding:10px; border-radius: 8px; aspect-ratio: 1;">TE</p>
+                        <div>
+                            <h5>TechHub Innovation</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">Tech collaboration center</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Pending</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 0</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #63ca34; padding:10px; border-radius: 8px; aspect-ratio: 1;">SU</p>
+                        <div>
+                            <h5>Suistainable Housing</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">Eco-friendly homes community</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Engineer</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 0</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #c721b9; padding:10px; border-radius: 8px; aspect-ratio: 1;">HE</p>
+                        <div>
+                            <h5>Heritage Restoration</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">Reviving historic landmark</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Finished</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Developer</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 0</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <p style="background-color: #3377FF; padding:10px; border-radius: 8px; aspect-ratio: 1;">ED</p>
+                        <div>
+                            <h5>Educational Outreach</h5>
+                            <p style="color: #969696; font-size: var(--font-sm);">Empowering underserved students</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-property">
+                            <p style="color: #969696;">Status</p>
+                            <p>Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Cost</p>
+                            <p>$ 0</p>
+                        </div>
+                        <div class="card-property">
+                            <p style="color: #969696;">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="./src/index.ts"></script>
+</body>
+</html>
