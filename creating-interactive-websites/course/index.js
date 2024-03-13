@@ -18,3 +18,21 @@ if(newProjectBtn) { //runs if true
     console.warn("New project button was not found:")
 }
 
+//Control document form
+const projectForm = document.getElementById("new-project-form")
+if(projectForm) {
+    projectForm.addEventListener("submit", (e) => {
+        e.preventDefault()
+        const projectFormData = new FormData(projectForm)
+        const projectData = {
+            name: projectFormData.get("projectName"),
+            description: projectFormData.get("projectDescription"),
+            role: projectFormData.get("userRole"),
+            status: projectFormData.get("projectStatus"),
+            finishDate: projectFormData.get("projectFinishDate"),
+        }
+        console.log(projectData)
+    })
+} else {
+    console.warn("The project form was not found. Check the ID")
+}
