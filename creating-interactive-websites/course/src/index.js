@@ -1,3 +1,5 @@
+import { Project } from "./class/Project"
+
 //One of the 3 ways to create function with the syntax function"name of the function"() {}
 function showModal(id) {
     const modal = document.getElementById(id)
@@ -27,11 +29,11 @@ if(projectForm) {
         const projectData = {
             name: projectFormData.get("projectName"),
             description: projectFormData.get("projectDescription"),
-            role: projectFormData.get("userRole"),
+            userRole: projectFormData.get("userRole"),
             status: projectFormData.get("projectStatus"),
             finishDate: projectFormData.get("projectFinishDate"),
         }
-        console.log(projectData)
+        const myProject = new Project(projectFormData.get("projectName"))
     })
 } else {
     console.warn("The project form was not found. Check the ID")
