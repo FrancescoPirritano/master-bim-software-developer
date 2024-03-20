@@ -3,7 +3,7 @@ import { Project, IProject, ProjectStatus, UserRole } from "./class/Project"
 //One of the 3 ways to create function with the syntax function"name of the function"() {}
 function showModal(id: string) {
     const modal = document.getElementById(id)
-    if(modal && modal instanceof HTMLDialogElement) {
+    if(modal && modal instanceof HTMLDialogElement) { // instanceof is to ensure modal is an HTML element 
         modal.showModal()
     } else {
         console.warn("Modal ID was not found:", id)
@@ -22,7 +22,7 @@ if(newProjectBtn) { //runs if true
 
 //Control document form
 const projectForm = document.getElementById("new-project-form")
-if(projectForm && projectForm instanceof HTMLFormElement) {
+if(projectForm && projectForm instanceof HTMLFormElement) { // instanceof is to ensure modal is an HTML element 
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault()
         const projectFormData = new FormData(projectForm)
