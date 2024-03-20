@@ -1,4 +1,4 @@
-import { Project } from "./class/Project"
+import { Project, IProject, ProjectStatus, UserRole } from "./class/Project"
 
 //One of the 3 ways to create function with the syntax function"name of the function"() {}
 function showModal(id: string) {
@@ -26,12 +26,12 @@ if(projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault()
         const projectFormData = new FormData(projectForm)
-        const projectData = {
-            name: projectFormData.get("projectName"),
-            description: projectFormData.get("projectDescription"),
-            userRole: projectFormData.get("userRole"),
-            status: projectFormData.get("projectStatus"),
-            finishDate: projectFormData.get("projectFinishDate"),
+        const projectData: IProject = {
+            name: projectFormData.get("projectName") as string,
+            description: projectFormData.get("projectDescription") as string,
+            userRole: projectFormData.get("userRole") as UserRole,
+            status: projectFormData.get("projectStatus") as ProjectStatus,
+            finishDate: new Date(projectFormData.get("projectFinishDate") as string),
         }
         const project = new Project(projectData)
     })
