@@ -23,4 +23,14 @@ export class ProjectsManager {
         return project //return project is the return value of the newProject method
     }
 
+    //Get a reference to store projects
+    getProject() { }
+
+    deleteProject() { }
+
+    exportToJSON() { }
+
+    importToJSON() { }
+
+
 }
