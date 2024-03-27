@@ -12,5 +12,8 @@
   "devDependencies": {
     "typescript": "^5.4.2",
     "vite": "^5.1.6"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
   }
 }

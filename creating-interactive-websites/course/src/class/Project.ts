@@ -1,3 +1,8 @@
+//Import UUID package
+//The UUID package installed created something called v4 so by using the 'as' we rename the package to uuidv4.
+import { v4 as uuidv4 } from 'uuid'
+
+
 export type ProjectStatus = "Pending" | "Active" | "Finished"
 export type UserRole = "Architect" | "Engineer" | "Developer"
 
@@ -23,6 +28,7 @@ export class Project implements IProject {
     ui: HTMLDivElement
     cost: number = 0
     progress: number = 0
+    id: string //ID used for the project once UUID package is installed
 
     // constructor creates instances of data. The constructor runs only once per project instance created.
     constructor(data: IProject) {
@@ -32,6 +38,7 @@ export class Project implements IProject {
         this.status = data.status
         this.userRole = data.userRole
         this.finishDate = data.finishDate
+        this.id = uuidv4() //uuidv4 is a function so every time is invoked, it returns a UUID for us to use.
         this.setUI() //The setUI method is then created multiple times so we write an if statement in the Project card UI
     
     }

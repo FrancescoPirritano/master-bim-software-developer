@@ -1,3 +1,5 @@
+//Projects Manager contains classes and methods to manage the project, e.g. create new, delete, import/export.
+
 import { IProject, Project } from "./Project"
 
 //Master Class existing for the whole application to keep reference to all projects,
@@ -24,13 +26,42 @@ export class ProjectsManager {
     }
 
     //Get a reference to store projects
-    getProject() { }
+    //The way to achieve all these methods is to use array operators which are built in methods that allows to process
+    //each item of a given list individually
 
-    deleteProject() { }
+    //Get project needs an argument to retrieve the project, hence the project needs a unique ID which is set by the code and not
+    //the user. To achieve that, there is an international standard called the UUID.
+    //To ensure the code can generate UUID, we use the UUID package. We run 'npm i uuid'.
+    //The UUID package is not a development dependency (so we don't install using -uuid as we did with npm). When we run the app,
+    //the code depends on the UUID package to be working fine.
+    getProject(id: string) {
+        //We find if there is a project that matches the given ID. Iterator methods will always
+        // have the callback in the first argument () => {}. Callback is just a function that is passed as an input to
+        //another function.
+        //When Javascript is iterating each elements in the array, it invoking this function and pass it to a reference
+        //of the current element being iterated. We can catch up that iteration element here in the argument of anonymous function
+        // e.g. "project".
+        const project = this.list.find((project) => { //In the case of find method, we use the callback must return a boolean value so the current 
+                                        //project being iterated knows if it's the one we are looking for.
+            return project.id === id  //When the return value by the callback is true, means that the ID of the current project
+                                        //being iterated matches the ID of the provided ID. Then find method finishes the 
+                                        //iteration and give the ID found. So we define a const to store the project ID found.
+        })
+        return project
+     }
+
+    deleteProject(id: string) {
+        const remaining = this.list.filter((project) => { //The callback filter method must also return a boolean.
+            return project.id !== id                    //If the boolean is false, the value is going to be removed from the
+                                                        //list. Otherwise, it's going to be kept.
+        })                                              //The filter method is non destructive, that means the original list
+                                                        //of projects keeps unaffected and the methods return a new list with
+        this.list = remaining                           //the filter data. In programming this is known as immutability and it is
+     }                                                  //important as it let us preserve the integrity of data.
 
     exportToJSON() { }
 
     importToJSON() { }
 
-
+    
 }
