@@ -51,6 +51,13 @@ export class ProjectsManager {
      }
 
     deleteProject(id: string) {
+        const project = this.getProject(id)             //To remove the UI from the page. Get the project by its ID.
+        if(!project) { return }                         //If the project to be deleted is not found, then finish the function.
+        project.ui.remove                               //The ! sign before the project is to invert the boolean result.
+                                                        //If the value is true, then it's converted to false. We can read the if
+                                                        //expression as if there is no project, return the function. 
+                                                        //If the project is found, then remove the UI and filter the data.                                           
+
         const remaining = this.list.filter((project) => { //The callback filter method must also return a boolean.
             return project.id !== id                    //If the boolean is false, the value is going to be removed from the
                                                         //list. Otherwise, it's going to be kept.
@@ -58,10 +65,31 @@ export class ProjectsManager {
                                                         //of projects keeps unaffected and the methods return a new list with
         this.list = remaining                           //the filter data. In programming this is known as immutability and it is
      }                                                  //important as it let us preserve the integrity of data.
+                                                        //Remaining are all the projects which are not matching with the provided
+                                                        //in the argument, hence the ID. We store them in a constant and then we
+                                                        //replace the list value with those "remaining" projects.
+                                                        //We are removing the project from the list, but not the UI from the page.
 
+
+    //Method to calculate the total cost of all projects.
+    //reduce(callbackFn, initialValue). If initialValue is not provided, TypeError is thrown.
+    getTotalProjectCost() { 
+        const totalCost: number = this.list.reduce((accumulator, project) => accumulator + project.cost, 0)
+        return totalCost 
+    }
+
+    //Get project by name method
+    getProjectByName(name: string) {
+        const project = this.list.find((project) => {
+            return project.name === name
+        })
+        return project
+
+    }
+    
+    
     exportToJSON() { }
 
     importToJSON() { }
 
-    
 }
