@@ -18,7 +18,14 @@ export class ProjectsManager {
     }
 
     //Create a method for the new project.
+    //Add map and inlcudes methods to check and avoid a project with the same name is created.
     newProject(data: IProject) {
+        const projectNames = this.list.map((project) => { //Taking projects from the list and return their names. The result is 
+                                                        //a new list projectNames
+            return project.name
+        })
+        const nameInUse = projectNames.includes(data.name) //Check if a project name (data.name) is included in the projectNames list
+
         const project = new Project(data)
         this.ui.append(project.ui) //This inserts a dumb element inside of another, e.g. 
         this.list.push(project)
