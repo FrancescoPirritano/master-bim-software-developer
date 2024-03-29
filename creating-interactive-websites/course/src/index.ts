@@ -85,18 +85,19 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // check if projectF
             const project = projectsManager.newProject(projectData) //create object project using projectData dictionary
             projectForm.reset() //Reset the form once submitted.
             toggleModal("new-project-modal") //Close the modal after clicking on accept button
-            console.log(project) //Print the object project
-        } catch (error) { //or catch(err)
-            alert(error) //or window.alert(err)
-            
+        } catch (err) { //or catch(err)
+            // alert(error) or window.alert(err) //
+            const errorMessage = document.getElementById("error-message") as HTMLElement
+            errorMessage.innerHTML = `${err}`
+            toggleModal("error-message-modal")            
         }
 
-
     })
-        cancelNewProjectButton?.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
-            projectForm.reset()
-            toggleModal("new-project-modal") //Close the form
-        })
+
+    cancelNewProjectButton?.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
+    projectForm.reset()
+    toggleModal("new-project-modal") //Close the form
+})
 } else { 
     console.warn("The project form was not found. Check the ID")
 }
