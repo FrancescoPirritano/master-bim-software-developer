@@ -80,10 +80,18 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // check if projectF
             status: projectFormData.get("projectStatus") as ProjectStatus,
             finishDate: new Date(projectFormData.get("projectFinishDate") as string),
         }
-        const project = projectsManager.newProject(projectData) //create object project using projectData dictionary
-        projectForm.reset() //Reset the form once submitted.
-        toggleModal("new-project-modal") //Close the modal after clicking on accept button
-        console.log(project) //Print the object project
+        //try an catch error statement. It's a statement like if/else but it only works with errors.
+        try { //any code inside try, if given error, will stop and any code inside catch will be executed.
+            const project = projectsManager.newProject(projectData) //create object project using projectData dictionary
+            projectForm.reset() //Reset the form once submitted.
+            toggleModal("new-project-modal") //Close the modal after clicking on accept button
+            console.log(project) //Print the object project
+        } catch (error) { //or catch(err)
+            alert(error) //or window.alert(err)
+            
+        }
+
+
     })
         cancelNewProjectButton?.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
             projectForm.reset()

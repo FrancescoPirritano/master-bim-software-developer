@@ -18,13 +18,19 @@ export class ProjectsManager {
     }
 
     //Create a method for the new project.
-    //Add map and inlcudes methods to check and avoid a project with the same name is created.
+    //Add map and inlcudes methods to check and avoid to create a project with the same name.
     newProject(data: IProject) {
         const projectNames = this.list.map((project) => { //Taking projects from the list and return their names. The result is 
                                                         //a new list projectNames
             return project.name
         })
         const nameInUse = projectNames.includes(data.name) //Check if a project name (data.name) is included in the projectNames list
+        if(nameInUse) {
+            throw new Error(`A project with the same "${data.name}" already exists`)
+            //throw is a special keyword used to stop the execution of the application by providing an error explaining why that
+            //happened -> new Error an in built method that allows to display a message. We can control what happens after the error
+            //by going to index.ts and use the try and catch statement.
+        }
 
         const project = new Project(data)
         this.ui.append(project.ui) //This inserts a dumb element inside of another, e.g. 
