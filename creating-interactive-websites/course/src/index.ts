@@ -66,10 +66,27 @@ const defaultProjectData : IProject = {
 
 const defaultProjectCard = projectsManager.newProject(defaultProjectData)
 
+//Define cancel properties
+const cancelNewProjectButton = document.getElementById("cancel-new-project-btn") as HTMLButtonElement //Define cancel property for new projects
+if(cancelNewProjectButton) {
+    cancelNewProjectButton.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
+        e.preventDefault()
+        toggleModal("new-project-modal") //Close the form
+    })
+}
+
+const closeErrorPopup = document.getElementById("cancel-error-popup-btn") as HTMLButtonElement //Define cancel property for popup form 
+
+if(closeErrorPopup) { 
+    closeErrorPopup.addEventListener("click", (e) => { 
+        e.preventDefault()
+        toggleModal("error-popup-modal") //Close error dialog
+    })
+}
+
 //Control document form
 const projectForm = document.getElementById("new-project-form")
-const cancelNewProjectButton = document.getElementById("cancel-new-project-btn") //Define cancel property
-if(projectForm && projectForm instanceof HTMLFormElement) { // check if projectForm exists in a form of HTMLFormElement
+if(projectForm && projectForm instanceof HTMLFormElement) { // Check if projectForm exists in a form of HTMLFormElement
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault()
         const projectFormData = new FormData(projectForm)
@@ -88,14 +105,12 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // check if projectF
         } catch (err) { //or catch(err)
             // alert(error) or window.alert(err) //
             const errorMessage = document.getElementById("err") as HTMLElement
-            errorMessage.innerHTML = `${err}`
+            errorMessage.textContent = err
             toggleModal("error-popup-modal")            
         }
+
     })
-        cancelNewProjectButton?.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
-            projectForm.reset()
-            toggleModal("new-project-modal") //Close the form
-        })
+
 } else { 
     console.warn("The project form was not found. Check the ID")
 }
