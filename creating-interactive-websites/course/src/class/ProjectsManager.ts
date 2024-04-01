@@ -26,7 +26,7 @@ export class ProjectsManager {
         })
         const nameInUse = projectNames.includes(data.name) //Check if a project name (data.name) is included in the projectNames list
         if(nameInUse) {
-            throw new Error(`A project with the same "${data.name}" already exists`)
+            throw new Error(`The "${data.name}" project name already exists`)
             //throw is a special keyword used to stop the execution of the application by providing an error explaining why that
             //happened -> new Error an in built method that allows to display a message. We can control what happens after the error
             //by going to index.ts and use the try and catch statement.

@@ -53,19 +53,17 @@
                             <input name="projectFinishDate" type="date">
                         </div>
                         <div class="form-button">
-                            <button id="cancel-new-projects-btn" type="button" style="background-color: transparent;">Cancel</button>
+                            <button id="cancel-new-project-btn" type="button" style="background-color: transparent;">Cancel</button>
                             <button type="submit" style="background-color: #378512;">Accept</button>
                         </div>
                     </div>    
                 </form>
             </dialog>
-            <dialog id="error-message-modal"> <!-- Assignment: Create a custom error popup-->>
-                <div id="error-dialog-form" class="alert">
-                    <div id="error-image">error-image</div>
-                    <P id="error-message" style="color: black;">This is the error message</P>
-                    <div>
-                        <button id="error-close-btn">Cancel</button>
-                    </div>
+            <dialog id="error-popup-modal" style="border-radius: 12px; outline: 2px solid var(--primary)"> <!-- Assignment: Create a custom error popup-->
+                <div id="error-message" class="alert">
+                    <div id="error-icon"><span class="material-icons-round" style="font-size: 50px; list-style: none;;">warning_amber</span></div>
+                    <P id="err" style="font-size: var(--font-base);"></P>
+                    <button id="error-close-btn">Cancel</button>
                 </div>
             </dialog>
             <header>

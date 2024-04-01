@@ -87,17 +87,15 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // check if projectF
             toggleModal("new-project-modal") //Close the modal after clicking on accept button
         } catch (err) { //or catch(err)
             // alert(error) or window.alert(err) //
-            const errorMessage = document.getElementById("error-message") as HTMLElement
+            const errorMessage = document.getElementById("err") as HTMLElement
             errorMessage.innerHTML = `${err}`
-            toggleModal("error-message-modal")            
+            toggleModal("error-popup-modal")            
         }
-
     })
-
-    cancelNewProjectButton?.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
-    projectForm.reset()
-    toggleModal("new-project-modal") //Close the form
-})
+        cancelNewProjectButton?.addEventListener("click", (e) => { //Event run when click cancel-new-project-btn
+            projectForm.reset()
+            toggleModal("new-project-modal") //Close the form
+        })
 } else { 
     console.warn("The project form was not found. Check the ID")
 }
