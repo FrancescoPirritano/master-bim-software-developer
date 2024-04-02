@@ -62,13 +62,21 @@
             <dialog id="error-popup-modal" style="border-radius: 12px; outline: 2px solid var(--primary)"> <!-- Assignment: Create a custom error popup-->
                 <div id="error-message" class="alert">
                     <div id="error-icon"><span class="material-icons-round" style="font-size: 50px; list-style: none;;">warning_amber</span></div>
-                    <P id="err" style="font-size: var(--font-base);"></P>
+                    <p id="err" style="font-size: var(--font-base);"></p>
                     <button id="cancel-error-popup-btn">Cancel</button>
+                </div>
+            </dialog>
+            <dialog id="total-projects-cost-modal" style="border-radius: 12px; outline: 2px solid var(--primary)"> <!-- Create a custom popup for displaying projects cost-->
+                <div id="projects-cost-summary">
+                    <h2>Total Projects Cost</h2>
+                    <p id="projects-cost" style="font-size: var(--font-base);">This is the total projects cost</p>
+                    <button id="close-total-projects-cost-btn">Cancel</button>
                 </div>
             </dialog>
             <header>
                 <h2>Projects</h2>
-                <div>
+                <div style="display: flex; column-gap: 20px;">
+                    <button id="total-projects-cost-btn"><span class="material-icons-round">account_balance</span>Projects Cost</button>
                     <button id="new-project-btn"><span class="material-icons-round">add</span>New Project</button>
                 </div>
             </header>

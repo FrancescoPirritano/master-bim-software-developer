@@ -88,7 +88,7 @@ export class ProjectsManager {
     //reduce(callbackFn, initialValue). If initialValue is not provided, TypeError is thrown.
     getTotalProjectCost() { 
         const totalCost: number = this.list.reduce((accumulator, project) => accumulator + project.cost, 0)
-        return totalCost 
+        return totalCost
     }
 
     //Get project by name method

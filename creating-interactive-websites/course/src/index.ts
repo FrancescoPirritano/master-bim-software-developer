@@ -64,6 +64,8 @@ const defaultProjectData : IProject = {
     finishDate: new Date(26-10-2024),
 }
 
+
+
 const defaultProjectCard = projectsManager.newProject(defaultProjectData)
 
 //Define cancel properties
@@ -75,12 +77,31 @@ if(cancelNewProjectButton) {
     })
 }
 
+//Define close property for Error Popup
 const closeErrorPopup = document.getElementById("cancel-error-popup-btn") as HTMLButtonElement //Define cancel property for popup form 
 
 if(closeErrorPopup) { 
     closeErrorPopup.addEventListener("click", (e) => { 
         e.preventDefault()
         toggleModal("error-popup-modal") //Close error dialog
+    })
+}
+
+//Define Project Cost and close button
+const totalProjectCostDisplay = document.getElementById("total-projects-cost-btn") //Define total cost property
+if(totalProjectCostDisplay) { 
+    totalProjectCostDisplay.addEventListener("click", (e) => {toggleModal("total-projects-cost-modal")}) //Event run when click total-projects-cost
+    const totalProjectCost = projectsManager.getTotalProjectCost() //Get total projects cost
+    console.log(totalProjectCost)
+
+} else {
+    console.warn("Projects Cost button is not found:")
+} 
+
+const cancelTotalProjectsCost = document.getElementById("close-total-projects-cost-btn") as HTMLButtonElement
+if(cancelTotalProjectsCost) { 
+    cancelTotalProjectsCost.addEventListener("click", (e) => {
+        toggleModal("total-projects-cost-modal")
     })
 }
 
