@@ -1,6 +1,7 @@
 //Import UUID package
 //The UUID package installed created something called v4 so by using the 'as' we rename the package to uuidv4.
 import { v4 as uuidv4 } from 'uuid'
+import { ProjectsManager } from './ProjectsManager'
 
 
 export type ProjectStatus = "Pending" | "Active" | "Finished"
@@ -13,7 +14,9 @@ export interface IProject { //Interface specifies Object types
     description: string
     status: ProjectStatus
     userRole: UserRole
+    cost: number
     finishDate: Date
+
 }
 
 export class Project implements IProject {
@@ -22,11 +25,11 @@ export class Project implements IProject {
     description: string
     status: "Pending" | "Active" | "Finished"
     userRole: "Architect" | "Engineer" | "Developer"
+    cost: number
     finishDate: Date
 
     //Class internals
     ui: HTMLDivElement
-    cost: number = 0
     progress: number = 0
     id: string //ID used for the project once UUID package is installed
 
@@ -37,6 +40,7 @@ export class Project implements IProject {
         this.description = data.description
         this.status = data.status
         this.userRole = data.userRole
+        this.cost = data.cost
         this.finishDate = data.finishDate
         this.id = uuidv4() //uuidv4 is a function so every time is invoked, it returns a UUID for us to use.
         this.setUI() //The setUI method is then created multiple times so we write an if statement in the Project card UI
@@ -82,6 +86,8 @@ export class Project implements IProject {
                 </div>
             </div>` 
     }
+
+        
 
 
 }

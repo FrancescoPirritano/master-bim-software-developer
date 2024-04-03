@@ -61,10 +61,9 @@ const defaultProjectData : IProject = {
     description: "Default Project Description",
     status: "Active",
     userRole: "Architect",
+    cost: 0,
     finishDate: new Date(26-10-2024),
 }
-
-
 
 const defaultProjectCard = projectsManager.newProject(defaultProjectData)
 
@@ -116,6 +115,7 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // Check if projectF
             description: projectFormData.get("projectDescription") as string,
             userRole: projectFormData.get("userRole") as UserRole,
             status: projectFormData.get("projectStatus") as ProjectStatus,
+            cost: projectFormData.get("projectCost"),
             finishDate: new Date(projectFormData.get("projectFinishDate") as string),
         }
         //try an catch error statement. It's a statement like if/else but it only works with errors.
