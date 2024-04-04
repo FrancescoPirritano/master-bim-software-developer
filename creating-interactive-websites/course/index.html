@@ -49,11 +49,6 @@
                             </select>
                         </div>
                         <div class="form-field-container">
-                            <label for="cost"><span class="material-icons-round">attach_money</span>Project Cost</label>
-                            <input name="projectCost" type="number" value="0" placeholder="$">
-                            <p style="color: #969696; font-size: var(--font-sm); font-style: italic; margin-top: 5px;">TIP: Use integer number</p>
-                        </div>
-                        <div class="form-field-container">
                             <label for="finishDate"><span class="material-icons-outlined">calendar_month</span>Finish Date</label>
                             <input name="projectFinishDate" type="date">
                         </div>
@@ -74,7 +69,7 @@
             <dialog id="total-projects-cost-modal" style="border-radius: 12px; outline: 2px solid var(--primary)"> <!-- Create a custom popup for displaying projects cost-->
                 <div id="projects-cost-summary">
                     <h2>Total Projects Cost</h2>
-                    <p id="projects-cost" style="font-size: var(--font-base);">This is the total projects cost</p>
+                    <p id="projects-cost-display" style="font-size: var(--font-base);">The total Projects cost is:</p>
                     <button id="close-total-projects-cost-btn">Cancel</button>
                 </div>
             </dialog>

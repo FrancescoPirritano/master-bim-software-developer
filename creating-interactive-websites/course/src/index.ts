@@ -61,7 +61,6 @@ const defaultProjectData : IProject = {
     description: "Default Project Description",
     status: "Active",
     userRole: "Architect",
-    cost: 0,
     finishDate: new Date(26-10-2024),
 }
 
@@ -86,12 +85,18 @@ if(closeErrorPopup) {
     })
 }
 
+//Define property to get total project cost
+const totalProjectCost = projectsManager.getTotalProjectCost()
+
 //Define Project Cost and close button
-const totalProjectCostDisplay = document.getElementById("total-projects-cost-btn") //Define total cost property
+const totalProjectCostDisplay = document.getElementById("total-projects-cost-btn") as HTMLButtonElement //Define total cost property
 if(totalProjectCostDisplay) { 
-    totalProjectCostDisplay.addEventListener("click", (e) => {toggleModal("total-projects-cost-modal")}) //Event run when click total-projects-cost
-    const totalProjectCost = projectsManager.getTotalProjectCost() //Get total projects cost
-    console.log(totalProjectCost)
+    totalProjectCostDisplay.addEventListener("click", (e) => {
+        console.log("This is the total Project cost:", totalProjectCost)
+        toggleModal("total-projects-cost-modal")}) //Event run when click total-projects-cost
+        
+
+
 
 } else {
     console.warn("Projects Cost button is not found:")
@@ -115,7 +120,6 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // Check if projectF
             description: projectFormData.get("projectDescription") as string,
             userRole: projectFormData.get("userRole") as UserRole,
             status: projectFormData.get("projectStatus") as ProjectStatus,
-            cost: projectFormData.get("projectCost"),
             finishDate: new Date(projectFormData.get("projectFinishDate") as string),
         }
         //try an catch error statement. It's a statement like if/else but it only works with errors.

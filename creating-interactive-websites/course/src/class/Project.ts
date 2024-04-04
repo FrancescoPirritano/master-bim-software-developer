@@ -14,7 +14,6 @@ export interface IProject { //Interface specifies Object types
     description: string
     status: ProjectStatus
     userRole: UserRole
-    cost: number
     finishDate: Date
 
 }
@@ -25,12 +24,12 @@ export class Project implements IProject {
     description: string
     status: "Pending" | "Active" | "Finished"
     userRole: "Architect" | "Engineer" | "Developer"
-    cost: number
     finishDate: Date
 
     //Class internals
     ui: HTMLDivElement
     progress: number = 0
+    cost: number = 0
     id: string //ID used for the project once UUID package is installed
 
     // constructor creates instances of data. The constructor runs only once per project instance created.
@@ -40,7 +39,6 @@ export class Project implements IProject {
         this.description = data.description
         this.status = data.status
         this.userRole = data.userRole
-        this.cost = data.cost
         this.finishDate = data.finishDate
         this.id = uuidv4() //uuidv4 is a function so every time is invoked, it returns a UUID for us to use.
         this.setUI() //The setUI method is then created multiple times so we write an if statement in the Project card UI
