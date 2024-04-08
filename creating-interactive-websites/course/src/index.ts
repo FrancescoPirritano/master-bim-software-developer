@@ -92,10 +92,10 @@ const totalProjectCost = projectsManager.getTotalProjectCost()
 const totalProjectCostDisplay = document.getElementById("total-projects-cost-btn") as HTMLButtonElement //Define total cost property
 if(totalProjectCostDisplay) { 
     totalProjectCostDisplay.addEventListener("click", (e) => {
-        totalProjectCost.valueOf()
-        console.log("Total projects cost: $", totalProjectCost)  
-        toggleModal("total-projects-cost-modal")}) //Event run when click total-projects-cost
-          
+        console.log("Total projects cost: $ ", totalProjectCost)
+        // alert("Cost: $ " + totalProjectCost) // Alert shown when click total-projects-cost
+        toggleModal("total-projects-cost-modal") //Event run when click total-projects-cost
+    }) 
     } else {
         console.warn("Projects Cost button is not found:")
 } 
