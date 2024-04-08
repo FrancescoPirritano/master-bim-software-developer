@@ -137,3 +137,11 @@ if(projectForm && projectForm instanceof HTMLFormElement) { // Check if projectF
 } else { 
     console.warn("The project form was not found. Check the ID")
 }
+
+//Export project to JSON
+const exportProjectsBtn = document.getElementById("export-projects-btn")
+if(exportProjectsBtn) {
+    exportProjectsBtn.addEventListener("click", () => {
+        projectsManager.exportToJSON()
+    })
+}

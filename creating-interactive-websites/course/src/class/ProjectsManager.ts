@@ -100,8 +100,19 @@ export class ProjectsManager {
 
     }
     
-    
-    exportToJSON() { }
+    // Exporting information means creating, each file has an extension which define its data format.
+    // JSON is JavaScript Object Notation, text based format with "key": "value". 
+    exportToJSON(filename: string = "projects") { //If not filename is provided, the default name is "projects"
+        const json = JSON.stringify(this.list, null, 2) //Stringify method convert any input in a JSON string
+        const blob = new Blob([json], { type: 'application/json' })
+        const url = URL.createObjectURL(blob) //Set the blob to create the url to donwload it
+        const a = document.createElement('a') //Ghost element which is not added to the HTML but it's only used to download data
+        a.href = url //The 'a' element has a href property where we set the url of the data to be downloaded
+        a.download = filename //Download property used to set the name of the file to be downloaded
+        a.click()
+        URL.revokeObjectURL(url) //Clean the url
+
+    }
 
     importToJSON() { }
 
