@@ -145,3 +145,11 @@ if(exportProjectsBtn) {
         projectsManager.exportToJSON()
     })
 }
+
+//Import JSON file to create projects
+const importProjectsBtn = document.getElementById("import-projects-btn")
+if(importProjectsBtn) { 
+    importProjectsBtn.addEventListener("click", () => {
+        projectsManager.importToJSON()
+    })
+}
