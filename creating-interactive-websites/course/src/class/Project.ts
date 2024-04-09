@@ -34,12 +34,18 @@ export class Project implements IProject {
 
     // constructor creates instances of data. The constructor runs only once per project instance created.
     constructor(data: IProject) {
-        //Project data definition
+        //Project data definition using iteration in an object, which is data.
+        for (const key in data) { //Iteratating in object. 
+            this[key] = data[key] //To access an object property (e.g. name) based on the value from a variable, we use brackets syntax.
+        }    
+        /* Project data definition, listing each key : value 
         this.name = data.name
         this.description = data.description
         this.status = data.status
         this.userRole = data.userRole
         this.finishDate = data.finishDate
+        */ 
+    
         this.id = uuidv4() //uuidv4 is a function so every time is invoked, it returns a UUID for us to use.
         this.setUI() //The setUI method is then created multiple times so we write an if statement in the Project card UI
     
