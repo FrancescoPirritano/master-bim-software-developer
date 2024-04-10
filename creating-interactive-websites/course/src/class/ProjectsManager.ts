@@ -114,31 +114,34 @@ export class ProjectsManager {
 
     }
 
-    importToJSON() { 
-       const input = document.createElement('input') //Create input file
-       input.type = 'file' //Define the type of the input
-       input.accept = 'application/json' //Define the file type accepted
-       const reader = new FileReader() //Create an instance of the file reader object
-       reader.addEventListener("load", () => { //The load event happens after the change event
-        const json = reader.result //Getting the result of the reader
-        if (!json) { return } //If there is no result, finish the callback. If there are results ->
-        const projects: IProject[] = JSON.parse(json as string) // -> Treat the json as string and parse the content.
-                                                                //Parse method converts json back to JS object
-        for (const project of projects) { 
-            try {
-                this.newProject(project)
-            } catch (error) { 
+    importToJSON() {
+        const input = document.createElement('input') //Create input file
+        input.type = 'file' //Define the type of the input
+        input.accept = 'application/json' //Define the file type accepted
+        const reader = new FileReader() //Create an instance of the file reader object
+        reader.addEventListener("load", () => { //The load event happens after the change event
+            const json = reader.result //Getting the result of the reader
+            if (!json) { return } //If there is no result, finish the callback. If there are results ->
+            const projects: IProject[] = JSON.parse(json as string) // -> Treat the json as string and parse the content.
+                                                                    //Parse method converts json back to JS object
+            console.log(json)
+            console.log(projects)
 
+            for (const project of projects) {
+                try {
+                    this.newProject(project)
+                } catch (error) {
+                    console.log(error.message)
 
+                }
             }
-        }
-        }) 
+        })
         input.addEventListener('change', () => { //When the file is selected using the input, the change event is fired.
             const fileList = input.files // The file property will be assigned to fileList
             if (!fileList) { return } //Checking if the file property contains something
             reader.readAsText(fileList[0]) //Read the file as text. When finishing processing the file content, the load event is fired.
         })
         input.click()
-    }
+    } 
 
 }
