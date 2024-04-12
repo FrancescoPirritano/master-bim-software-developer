@@ -103,7 +103,10 @@ export class ProjectsManager {
     // Exporting information means creating, each file has an extension which define its data format.
     // JSON is JavaScript Object Notation, text based format with "key": "value". 
     exportToJSON(filename: string = "projects") { //If not filename is provided, the default name is "projects"
-        const json = JSON.stringify(this.list, null, 2) //Stringify method convert any input in a JSON string
+        const json = JSON.stringify(this.list, (key, value) => { //Stringify method convert any input in a JSON string
+            if(key === "ui") return undefined //Check if key match the string "ui". If match, return "undefined"
+            return value //else return value
+        }) 
         const blob = new Blob([json], { type: 'application/json' })
         const url = URL.createObjectURL(blob) //Set the blob to create the url to donwload it
         const a = document.createElement('a') //Ghost element which is not added to the HTML but it's only used to download data
@@ -124,15 +127,12 @@ export class ProjectsManager {
             if (!json) { return } //If there is no result, finish the callback. If there are results ->
             const projects: IProject[] = JSON.parse(json as string) // -> Treat the json as string and parse the content.
                                                                     //Parse method converts json back to JS object
-            console.log(json)
-            console.log(projects)
-
             for (const project of projects) {
                 try {
                     this.newProject(project)
                 } catch (error) {
-                    console.log(error.message)
-
+                    alert(error.message)
+                    
                 }
             }
         })
