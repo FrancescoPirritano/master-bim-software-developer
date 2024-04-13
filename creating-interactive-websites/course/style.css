@@ -321,7 +321,7 @@ footer button:hover {
     padding-right: 15px;
 }
 
-/* Project details page
+/* Project details page */
 
 .dashboard-card {
     background-color: var(--background-100);
@@ -367,5 +367,3 @@ footer button:hover {
 .to-do-card:hover {
     background-color: var(--primary);    
 }
-
-*/

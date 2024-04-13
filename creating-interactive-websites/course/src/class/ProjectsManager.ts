@@ -32,7 +32,19 @@ export class ProjectsManager {
             //by going to index.ts and use the try and catch statement.
         }
 
-        const project = new Project(data)
+        const project = new Project(data) //Create project
+        project.ui.addEventListener("click", () => { //Event when the project card is clicked
+            const projectsPage = document.getElementById("projects-page") as HTMLElement
+            const detailsPage = document.getElementById("project-details") as HTMLElement
+            if (!(projectsPage && detailsPage)) { return } // || is OR operator. If there is no projects page or details page, then
+                                                            //Finish the function. !projectsPage || !detailsPage or 
+                                                            // (!(projectsPage && detailsPage))
+            projectsPage.style.display = "none"
+            detailsPage.style.display = "flex"
+            
+        })
+
+
         this.ui.append(project.ui) //This inserts a dumb element inside of another, e.g. 
         this.list.push(project)
         return project //return project is the return value of the newProject method
