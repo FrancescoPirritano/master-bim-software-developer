@@ -153,3 +153,31 @@ if(importProjectsBtn) {
         projectsManager.importToJSON()
     })
 }
+
+//Function to switch between pages
+function pageNavigator(id : string) {
+    const pages = document.querySelectorAll('.page') //Return all pages
+    for(const page of pages) {
+        if(page.id === id) { 
+            (page as HTMLElement).style.display = "flex"
+        } else { 
+            (page as HTMLElement).style.display = "none"
+        }
+    }
+}        
+
+//Event for projects navigation button
+const projectsNavBtn = document.getElementById("projects-nav-btn")
+if(projectsNavBtn) { 
+    projectsNavBtn.addEventListener("click", () => { 
+        pageNavigator("projects-page")
+    })
+}
+
+//Event for users navigation button
+const usersNavBtn = document.getElementById("users-nav-btn")
+if(usersNavBtn) { 
+    usersNavBtn.addEventListener("click", () => { 
+        pageNavigator("users-page")
+    })
+}

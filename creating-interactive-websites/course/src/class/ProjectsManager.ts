@@ -34,8 +34,8 @@ export class ProjectsManager {
 
         const project = new Project(data) //Create project
         project.ui.addEventListener("click", () => { //Event when the project card is clicked
-            const projectsPage = document.getElementById("projects-page") as HTMLElement
-            const detailsPage = document.getElementById("project-details") as HTMLElement
+            const projectsPage = document.getElementById("projects-page")
+            const detailsPage = document.getElementById("project-details")
             if (!(projectsPage && detailsPage)) { return } // || is OR operator. If there is no projects page or details page, then
                                                             //Finish the function. !projectsPage || !detailsPage or 
                                                             // (!(projectsPage && detailsPage))
