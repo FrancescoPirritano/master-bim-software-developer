@@ -55,8 +55,8 @@ export class Project implements IProject {
 
     //Define the method. Unlike the constructor, Method don't get involved after the class is instanciated. 
     //Method needs to be invoked. The goal is to initiate the setUI with the constructor so we add "this.setUI()"
+    //Create the project card UI
     setUI() {
-        //Project card UI
         if(this.ui) {return} //if the UI is already defined then do not run the code to genereate it
         // return is used inside Functions to finish it 
         this.ui = document.createElement("div") //Create an instance of the card

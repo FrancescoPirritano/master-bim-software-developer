@@ -41,14 +41,32 @@ export class ProjectsManager {
                                                             // (!(projectsPage && detailsPage))
             projectsPage.style.display = "none"
             detailsPage.style.display = "flex"
-            
+            this.setDetailsPage(project) //Everytime the project card is clicked the "setDetailsPage" method is invoked.
         })
-
-
         this.ui.append(project.ui) //This inserts a dumb element inside of another, e.g. 
         this.list.push(project)
         return project //return project is the return value of the newProject method
     }
+
+    //Method to set project details
+    //To change the project information we need to get a reference to the DOM elements we want to change their contents.
+    //We already know that the get element by ID give a reference to the element ID provided. But we will use a more advanced method
+    //to get elements from the DOM. We can get the elements based on their HTML attributes.
+    //A common practice is to set custom HTML attributes to help us reference elements from the code.
+    //We add custom attributes in the HMTL starting with "data-"
+
+    private setDetailsPage(project: Project) { //We use private as this method is meant to be only use internally by the class.
+                                                //The method only read and report data we input.
+        const detailsPage = document.getElementById("project-details")
+        if (!detailsPage) { return }
+        const name = detailsPage.querySelector("[data-project-info='name']") //All HTML elements have a method called query selector.
+                                                                        //The query selector select the HTML element with the specified
+                                                                        //attribute.
+        if (name) { name.textContent = project.name } //Condition if the name is found
+        
+
+    }
+
 
     //Get a reference to store projects
     //The way to achieve all these methods is to use array operators which are built in methods that allows to process
