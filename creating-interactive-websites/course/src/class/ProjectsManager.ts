@@ -63,6 +63,16 @@ export class ProjectsManager {
                                                                         //The query selector select the HTML element with the specified
                                                                         //attribute.
         if (name) { name.textContent = project.name } //Condition if the name is found
+        const description = detailsPage.querySelector("[data-project-info='description']")
+        if (description) { description.textContent = project.description }
+        const userRole = detailsPage.querySelector("[data-project-info='userRole']")
+        if (userRole) { userRole.textContent = project.userRole }
+        const projectStatus = detailsPage.querySelector("[data-project-info='projectStatus']")
+        if (projectStatus) { projectStatus.textContent = project.status }
+        const cost = detailsPage.querySelector("[data-project-info='cost']")
+        if (cost) { cost.textContent = "$" + project.cost }
+
+
         
 
     }
