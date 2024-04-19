@@ -63,17 +63,42 @@ export class ProjectsManager {
                                                                         //The query selector select the HTML element with the specified
                                                                         //attribute.
         if (name) { name.textContent = project.name } //Condition if the name is found
+
         const description = detailsPage.querySelector("[data-project-info='description']")
         if (description) { description.textContent = project.description }
+        
+        const cardProjectName = detailsPage.querySelector("[data-project-info='cardName']")
+        if (cardProjectName) { cardProjectName.textContent = project.name }
+        console.log(cardProjectName)
+        
+        const cardProjectDescription = detailsPage.querySelector("[data-project-info='cardDescription']")
+        if (cardProjectDescription) { cardProjectDescription.textContent = project.description }
+        console.log(cardProjectDescription)
+        
         const userRole = detailsPage.querySelector("[data-project-info='userRole']")
         if (userRole) { userRole.textContent = project.userRole }
+        
         const projectStatus = detailsPage.querySelector("[data-project-info='projectStatus']")
         if (projectStatus) { projectStatus.textContent = project.status }
+        
         const cost = detailsPage.querySelector("[data-project-info='cost']")
         if (cost) { cost.textContent = "$" + project.cost }
-
-
         
+        const finishDate = detailsPage.querySelector("[data-project-info='finishDate']")
+        if (finishDate) {
+            const date = project.finishDate
+            const dateObj = new Date(date)
+            finishDate.textContent = dateObj.toLocaleDateString()
+        }
+
+        const projectProgress = detailsPage.querySelector("[data-project-info='progress']") as HTMLElement
+        if (projectProgress) { 
+            projectProgress.textContent = project.progress * 100 + "%"
+            projectProgress.style.width = project.progress * 100 + "%"
+            
+        }
+
+     
 
     }
 

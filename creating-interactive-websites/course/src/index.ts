@@ -86,7 +86,7 @@ if(closeErrorPopup) {
 }
 
 //Define property to get total project cost
-const totalProjectCost = projectsManager.getTotalProjectCost()
+const totalProjectCost: number = projectsManager.getTotalProjectCost()
 
 //Define Project Cost and close button
 const totalProjectCostDisplay = document.getElementById("total-projects-cost-btn") as HTMLButtonElement //Define total cost property
