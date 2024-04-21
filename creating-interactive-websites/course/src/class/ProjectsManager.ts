@@ -97,9 +97,6 @@ export class ProjectsManager {
             projectProgress.style.width = project.progress * 100 + "%"
             
         }
-
-     
-
     }
 
 
