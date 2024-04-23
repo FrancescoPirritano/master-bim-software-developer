@@ -29,7 +29,7 @@ export class Project implements IProject {
     //Class internals
     ui: HTMLDivElement
     progress: number = 0
-    cost: number = 100
+    cost: number = 0
     id: string //ID used for the project once UUID package is installed
 
     // constructor creates instances of data. The constructor runs only once per project instance created.
